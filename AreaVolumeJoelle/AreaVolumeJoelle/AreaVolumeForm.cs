@@ -22,6 +22,7 @@ namespace AreaVolumeJoelle
 {
     public partial class frmAreaVolume : Form
     {
+        public char KeyChar { get; set; }
         public frmAreaVolume()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace AreaVolumeJoelle
             lblShapeName.Hide();
             lblAnswerStatement.Hide();
             lblAnswer.Hide();
-            
+
             //hide the calculate buttons
             btnCalculateTrapezoid.Hide();
             btnCalculateSphere.Hide();
@@ -47,6 +48,8 @@ namespace AreaVolumeJoelle
             btnCalculateCube.Hide();
             btnCalculateCone.Hide();
         }
+
+
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
@@ -73,11 +76,11 @@ namespace AreaVolumeJoelle
             lblSqureBasedPyramid.Hide();
             lblCube.Hide();
             lblCone.Hide();
-            
+
             //hide the other items
             lblWhatShapeStatement.Hide();
             numChosenShape.Hide();
-            
+
             //hide labels that give the user the calculation answers 
             lblAnswerStatement.Hide();
 
@@ -279,7 +282,7 @@ namespace AreaVolumeJoelle
             area = ((topLength + bottomLength) * height) / 2;
 
             //convert from a double to a string
-            this.lblAnswer.Text = Convert.ToString(area) + " cm²";
+            this.lblAnswer.Text = Convert.ToString(Math.Round(area, 2)) + " cm²";
 
             //display the answer
             lblAnswer.Show();
@@ -300,7 +303,7 @@ namespace AreaVolumeJoelle
             volume = 0.75 * PI * (radius * radius);
 
             //convert from a double to a string
-            this.lblAnswer.Text = Convert.ToString(volume) + " cm";
+            this.lblAnswer.Text = Convert.ToString(Math.Round(volume, 2)) + " cm";
 
             //display the answer
             lblAnswer.Show();
@@ -322,7 +325,7 @@ namespace AreaVolumeJoelle
             area = (PI * (radius * radius)) * height;
 
             //convert from a double to a string
-            this.lblAnswer.Text = Convert.ToString(area) + " cm²";
+            this.lblAnswer.Text = Convert.ToString(Math.Round(area, 2)) + " cm²";
 
             //display the answer
             lblAnswer.Show();
@@ -341,7 +344,7 @@ namespace AreaVolumeJoelle
             volume = 0.5 * basee * height;
 
             //convert from a double to a string
-            this.lblAnswer.Text = Convert.ToString(volume) + " cm";
+            this.lblAnswer.Text = Convert.ToString(Math.Round(volume, 2)) + " cm";
 
             //display the answer
             lblAnswer.Show();
@@ -361,7 +364,7 @@ namespace AreaVolumeJoelle
             area = length * width * height;
 
             //convert from a double to a string
-            this.lblAnswer.Text = Convert.ToString(area) + " cm²";
+            this.lblAnswer.Text = Convert.ToString(Math.Round(area, 2)) + " cm²";
 
             //display the answer
             lblAnswer.Show();
@@ -381,7 +384,7 @@ namespace AreaVolumeJoelle
             area = (length * width * height) / 3;
 
             //convert from a double to a cube
-            this.lblAnswer.Text = Convert.ToString(area) + " cm²";
+            this.lblAnswer.Text = Convert.ToString(Math.Round(area, 2)) + " cm²";
 
             //display the answer
             lblAnswer.Show();
@@ -400,10 +403,10 @@ namespace AreaVolumeJoelle
             height = double.Parse(txtDimension2.Text);
 
             //the formula of a cone
-            area = (PI * (radius * radius) * height) / 3 ;
+            area = (PI * (radius * radius) * height) / 3;
 
             //convert from a double to a string
-            this.lblAnswer.Text = Convert.ToString(area) + " cm²";
+            this.lblAnswer.Text = Convert.ToString(Math.Round(area, 2)) + " cm²";
 
             //display the answer
             lblAnswer.Show();
@@ -413,6 +416,11 @@ namespace AreaVolumeJoelle
         {
             //Exit the program
             this.Close();
+        }
+
+
+        private void TxtDimension1_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

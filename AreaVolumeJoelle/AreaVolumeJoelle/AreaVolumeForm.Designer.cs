@@ -209,6 +209,7 @@
             this.txtDimension1.Name = "txtDimension1";
             this.txtDimension1.Size = new System.Drawing.Size(148, 25);
             this.txtDimension1.TabIndex = 14;
+            this.txtDimension1.TextChanged += new System.EventHandler(this.TxtDimension1_TextChanged);
             // 
             // txtDimension3
             // 
@@ -368,7 +369,7 @@
             // mniExit
             // 
             this.mniExit.Name = "mniExit";
-            this.mniExit.Size = new System.Drawing.Size(180, 22);
+            this.mniExit.Size = new System.Drawing.Size(93, 22);
             this.mniExit.Text = "Exit";
             this.mniExit.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
