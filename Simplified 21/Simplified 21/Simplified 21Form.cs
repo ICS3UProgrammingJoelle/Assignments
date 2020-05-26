@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Simplified_21
 {
@@ -27,11 +28,18 @@ namespace Simplified_21
         //set the random genrator
         Random aRandomNumber = new Random();
 
+        //sounds
+        private SoundPlayer winnerSound;
+        private SoundPlayer loserSound;
 
         public frmSimplified21()
         {
             InitializeComponent();
-    
+
+            //create winners sound and losers sound
+            winnerSound = new SoundPlayer(@"win.wav");
+            loserSound = new SoundPlayer(@"lose.wav");
+
             //hide items
             this.btnHit.Hide();
             this.btnHit2.Hide();
@@ -43,8 +51,14 @@ namespace Simplified_21
             this.picUsersCard3.Hide();
             this.picUsersCard4.Hide();
             this.lblAce.Hide();
+            this.lblAce3.Hide();
+            this.lblAce4.Hide();
             this.radOne.Hide();
+            this.radOne3.Hide();
+            this.radOne4.Hide();
             this.radEleven.Hide();
+            this.radEleven3.Hide();
+            this.radEleven4.Hide();
             this.lblUsersValue.Hide();
             this.lblDealersValue.Hide();
             this.lblComment.Hide();
@@ -63,7 +77,7 @@ namespace Simplified_21
 
         private void radOne_CheckedChanged(object sender, EventArgs e)
         {
-            //if statement that user's decison
+            //several if statements for the first 2 cards, that makes the ace value 1
             if (usersCards == 1)
             {
                 //sets appropriate ace value
@@ -74,6 +88,7 @@ namespace Simplified_21
                 this.radOne.Hide();
                 this.radEleven.Hide();
             }
+            
             if (usersCards2 == 1)
             {
                 //sets appropriate ace value
@@ -84,28 +99,8 @@ namespace Simplified_21
                 this.radOne.Hide();
                 this.radEleven.Hide();
             }
-            if (usersCards3 == 1)
-            {
-                //sets appropriate ace value
-                usersCards3 = 1;
-
-                //hide items need for the ace
-                this.lblAce.Hide();
-                this.radOne.Hide();
-                this.radEleven.Hide();
-            }
-            if (usersCards4 == 1)
-            {
-                //sets appropriate ace value
-                usersCards4 = 1;
-
-                //hide items need for the ace
-                this.lblAce.Hide();
-                this.radOne.Hide();
-                this.radEleven.Hide();
-            }
             //calculate the user's cards
-            usersTotalCards = usersCards + usersCards2 + usersCards3 + usersCards4;
+            usersTotalCards = usersCards + usersCards2;
 
             //display user's cards   and card value  
             lblUsersValue.Text = "Player's value is  " + usersTotalCards;
@@ -113,7 +108,7 @@ namespace Simplified_21
 
         private void radEleven_CheckedChanged(object sender, EventArgs e)
         {
-            //if statement that user's decison
+            //several if statements for each card, that makes the ace value 11
             if (usersCards == 1)
             {
                 //sets appropriate ace value
@@ -124,6 +119,7 @@ namespace Simplified_21
                 this.radOne.Hide();
                 this.radEleven.Hide();
             }
+            
             if (usersCards2 == 1)
             {
                 //sets appropriate ace value
@@ -134,25 +130,86 @@ namespace Simplified_21
                 this.radOne.Hide();
                 this.radEleven.Hide();
             }
+
+            //calculate the user's cards
+            usersTotalCards = usersCards + usersCards2;
+
+            //display user's cards   and card value  
+            lblUsersValue.Text = "Player's value is  " + usersTotalCards;
+        }
+
+        private void radOne3_CheckedChanged(object sender, EventArgs e)
+        {
+            //if statements for the 3rd card, that makes the ace value 1
+            if (usersCards3 == 1)
+            {
+                //sets appropriate ace value
+                usersCards3 = 1;
+
+                //hide items need for the ace
+                this.lblAce3.Hide();
+                this.radOne3.Hide();
+                this.radEleven3.Hide();
+            }
+            //calculate the user's cards
+            usersTotalCards = usersCards + usersCards2 + usersCards3;
+
+            //display user's cards   and card value  
+            lblUsersValue.Text = "Player's value is  " + usersTotalCards;
+        }
+
+        private void radOnee_CheckedChanged(object sender, EventArgs e)
+        {
+            //if statements for the 4th card, that makes the ace value 1
+            if (usersCards4 == 1)
+            {
+                //sets appropriate ace value
+                usersCards4 = 1;
+
+                //hide items need for the ace
+                this.lblAce4.Hide();
+                this.radOne4.Hide();
+                this.radEleven4.Hide();
+            }
+            //calculate the user's cards
+            usersTotalCards = usersCards + usersCards2 + usersCards3 + usersCards4;
+
+            //display user's cards   and card value  
+            lblUsersValue.Text = "Player's value is  " + usersTotalCards;
+        }
+
+        private void radEleven3_CheckedChanged(object sender, EventArgs e)
+        {
+            //if statements for the 3rd card, that makes the ace value 11
             if (usersCards3 == 1)
             {
                 //sets appropriate ace value
                 usersCards3 = 11;
 
                 //hide items need for the ace
-                this.lblAce.Hide();
-                this.radOne.Hide();
-                this.radEleven.Hide();
+                this.lblAce3.Hide();
+                this.radOne3.Hide();
+                this.radEleven3.Hide();
             }
+            //calculate the user's cards
+            usersTotalCards = usersCards + usersCards2 + usersCards3;
+
+            //display user's cards   and card value  
+            lblUsersValue.Text = "Player's value is  " + usersTotalCards;
+        }
+
+        private void radEleven4_CheckedChanged(object sender, EventArgs e)
+        {
+            //if statements for the 4th card, that makes the ace value 11
             if (usersCards4 == 1)
             {
                 //sets appropriate ace value
                 usersCards4 = 11;
 
                 //hide items need for the ace
-                this.lblAce.Hide();
-                this.radOne.Hide();
-                this.radEleven.Hide();
+                this.lblAce4.Hide();
+                this.radOne4.Hide();
+                this.radEleven4.Hide();
             }
             //calculate the user's cards
             usersTotalCards = usersCards + usersCards2 + usersCards3 + usersCards4;
@@ -315,9 +372,21 @@ namespace Simplified_21
 
                 //set a random ace value genarator
                 Random ace = new Random();
+                int dealersAce = ace.Next(1, 3);
 
-                //set the dealer's cards to euqal the value the generator choose
-                dealersCards = ace.Next(1, 11);
+                //local conatants
+                const int ACE_ONE = 1;
+                const int ACE_ELEVEN = 11;
+
+                //if statement that gives the dear the correct value, according to the random number
+                if(dealersAce == 1)
+                {
+                    dealersCards = ACE_ONE;
+                }
+                else
+                {
+                    dealersCards = ACE_ELEVEN;
+                }
             }
 
             else if (dealersCards == 2)
@@ -373,9 +442,21 @@ namespace Simplified_21
 
                 //set a random ace value genarator
                 Random ace = new Random();
+                int dealersAce2 = ace.Next(1, 3);
 
-                //set the dealer's cards to euqal the value the generator choose
-                dealersCards = ace.Next(1, 11);
+                //local conatants
+                const int ACE_ONE = 1;
+                const int ACE_ELEVEN = 11;
+
+                //if statement that gives the dear the correct value, according to the random number
+                if (dealersAce2 == 1)
+                {
+                    dealersCards2 = ACE_ONE;
+                }
+                else
+                {
+                    dealersCards2 = ACE_ELEVEN;
+                }
             }
 
             else if (dealersCards2 == 2)
@@ -443,11 +524,11 @@ namespace Simplified_21
                 this.picUsersCard3.Image = Properties.Resources.cardAce;
 
                 //show items need for the ace
-                this.lblAce.Show();
-                this.radOne.Show();
-                this.radEleven.Show();
-
+                this.lblAce3.Show();
+                this.radOne3.Show();
+                this.radEleven3.Show();
             }
+
             else if (usersCards3 == 2)
             {
                 this.picUsersCard3.Image = Properties.Resources.card2;
@@ -499,7 +580,6 @@ namespace Simplified_21
                 this.picUsersCard3.Image = Properties.Resources.card10;
                 usersCards3 = 10;
             }
-
             //calculate the user's cards
             usersTotalCards = usersCards + usersCards2 + usersCards3;
 
@@ -512,8 +592,14 @@ namespace Simplified_21
             //hide items
             this.btnHit2.Hide();
             this.lblAce.Hide();
+            this.lblAce3.Hide();
+            this.lblAce4.Hide();
             this.radOne.Hide();
+            this.radOne3.Hide();
+            this.radOne4.Hide();
             this.radEleven.Hide();
+            this.radEleven3.Hide();
+            this.radEleven4.Hide();
 
             //show items
             this.picUsersCard4.Show();
@@ -524,9 +610,9 @@ namespace Simplified_21
                 this.picUsersCard4.Image = Properties.Resources.cardAce;
 
                 //show items need for the ace
-                this.lblAce.Show();
-                this.radOne.Show();
-                this.radEleven.Show();
+                this.lblAce4.Show();
+                this.radOne4.Show();
+                this.radEleven4.Show();
 
             }
             else if (usersCards4 == 2)
@@ -613,9 +699,9 @@ namespace Simplified_21
             {
                 //display who won
                 lblComment.Text = "Dealer won, you're busted :/";
-                
-                //play sound
 
+                //play sound
+                loserSound.Play();
             }
 
             else if (usersTotalCards == 21)
@@ -626,23 +712,21 @@ namespace Simplified_21
                     lblComment.Text = "Dealer is a bust, YOU WON!";
 
                     //play sound
+                    winnerSound.Play();
 
                 }
                 else if (dealersTotalCards == 21)
                 {
                     //display who won
                     lblComment.Text = "You've both hit the jackpot. It's a tie";
-
-                    //play sound
-
                 }
                 else
                 {
                     //display who won
-                    lblComment.Text = "YOU WON!";
+                    lblComment.Text = "JACKPOT, YOU WON!";
 
                     //play sound
-
+                    winnerSound.Play();
                 }
             }
             else
@@ -653,7 +737,7 @@ namespace Simplified_21
                     lblComment.Text = "YOU WON!";
 
                     //play sound
-
+                    winnerSound.Play();
                 }
                 else if (usersTotalCards ==dealersTotalCards)
                 {
@@ -661,7 +745,7 @@ namespace Simplified_21
                     lblComment.Text = "It's a tie";
 
                     //play sound
-
+                    loserSound.Play();
                 }
                 else
                 {
@@ -669,7 +753,7 @@ namespace Simplified_21
                     lblComment.Text = "Dealer's closer to 21. You lost :/";
 
                     //play sound
-
+                    loserSound.Play();
                 }
             }
         }

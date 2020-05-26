@@ -48,6 +48,12 @@
             this.lblDealersValue = new System.Windows.Forms.Label();
             this.btnHit2 = new System.Windows.Forms.Button();
             this.lblComment = new System.Windows.Forms.Label();
+            this.lblAce3 = new System.Windows.Forms.Label();
+            this.lblAce4 = new System.Windows.Forms.Label();
+            this.radEleven4 = new System.Windows.Forms.RadioButton();
+            this.radEleven3 = new System.Windows.Forms.RadioButton();
+            this.radOne3 = new System.Windows.Forms.RadioButton();
+            this.radOne4 = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDealersCard1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDealersCard2)).BeginInit();
@@ -196,11 +202,11 @@
             // 
             this.lblAce.AutoSize = true;
             this.lblAce.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAce.Location = new System.Drawing.Point(534, 24);
+            this.lblAce.Location = new System.Drawing.Point(520, 24);
             this.lblAce.Name = "lblAce";
-            this.lblAce.Size = new System.Drawing.Size(239, 20);
+            this.lblAce.Size = new System.Drawing.Size(268, 20);
             this.lblAce.TabIndex = 11;
-            this.lblAce.Text = "What do want your ace to value?";
+            this.lblAce.Text = "What do you want your ace to value?";
             // 
             // radOne
             // 
@@ -256,11 +262,85 @@
             this.lblComment.TabIndex = 17;
             this.lblComment.Text = "label1";
             // 
+            // lblAce3
+            // 
+            this.lblAce3.AutoSize = true;
+            this.lblAce3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAce3.Location = new System.Drawing.Point(520, 56);
+            this.lblAce3.Name = "lblAce3";
+            this.lblAce3.Size = new System.Drawing.Size(268, 20);
+            this.lblAce3.TabIndex = 18;
+            this.lblAce3.Text = "What do you want your ace to value?";
+            // 
+            // lblAce4
+            // 
+            this.lblAce4.AutoSize = true;
+            this.lblAce4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAce4.Location = new System.Drawing.Point(521, 88);
+            this.lblAce4.Name = "lblAce4";
+            this.lblAce4.Size = new System.Drawing.Size(268, 20);
+            this.lblAce4.TabIndex = 19;
+            this.lblAce4.Text = "What do you want your ace to value?";
+            // 
+            // radEleven4
+            // 
+            this.radEleven4.AutoSize = true;
+            this.radEleven4.Location = new System.Drawing.Point(677, 166);
+            this.radEleven4.Name = "radEleven4";
+            this.radEleven4.Size = new System.Drawing.Size(37, 17);
+            this.radEleven4.TabIndex = 20;
+            this.radEleven4.TabStop = true;
+            this.radEleven4.Text = "11";
+            this.radEleven4.UseVisualStyleBackColor = true;
+            this.radEleven4.CheckedChanged += new System.EventHandler(this.radEleven4_CheckedChanged);
+            // 
+            // radEleven3
+            // 
+            this.radEleven3.AutoSize = true;
+            this.radEleven3.Location = new System.Drawing.Point(677, 130);
+            this.radEleven3.Name = "radEleven3";
+            this.radEleven3.Size = new System.Drawing.Size(37, 17);
+            this.radEleven3.TabIndex = 21;
+            this.radEleven3.TabStop = true;
+            this.radEleven3.Text = "11";
+            this.radEleven3.UseVisualStyleBackColor = true;
+            this.radEleven3.CheckedChanged += new System.EventHandler(this.radEleven3_CheckedChanged);
+            // 
+            // radOne3
+            // 
+            this.radOne3.AutoSize = true;
+            this.radOne3.Location = new System.Drawing.Point(677, 91);
+            this.radOne3.Name = "radOne3";
+            this.radOne3.Size = new System.Drawing.Size(31, 17);
+            this.radOne3.TabIndex = 22;
+            this.radOne3.TabStop = true;
+            this.radOne3.Text = "1";
+            this.radOne3.UseVisualStyleBackColor = true;
+            this.radOne3.CheckedChanged += new System.EventHandler(this.radOne3_CheckedChanged);
+            // 
+            // radOne4
+            // 
+            this.radOne4.AutoSize = true;
+            this.radOne4.Location = new System.Drawing.Point(677, 130);
+            this.radOne4.Name = "radOne4";
+            this.radOne4.Size = new System.Drawing.Size(31, 17);
+            this.radOne4.TabIndex = 23;
+            this.radOne4.TabStop = true;
+            this.radOne4.Text = "1";
+            this.radOne4.UseVisualStyleBackColor = true;
+            this.radOne4.CheckedChanged += new System.EventHandler(this.radOnee_CheckedChanged);
+            // 
             // frmSimplified21
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.radOne4);
+            this.Controls.Add(this.radOne3);
+            this.Controls.Add(this.radEleven3);
+            this.Controls.Add(this.radEleven4);
+            this.Controls.Add(this.lblAce4);
+            this.Controls.Add(this.lblAce3);
             this.Controls.Add(this.lblComment);
             this.Controls.Add(this.btnHit2);
             this.Controls.Add(this.lblDealersValue);
@@ -316,6 +396,12 @@
         private System.Windows.Forms.Label lblDealersValue;
         private System.Windows.Forms.Button btnHit2;
         private System.Windows.Forms.Label lblComment;
+        private System.Windows.Forms.Label lblAce3;
+        private System.Windows.Forms.Label lblAce4;
+        private System.Windows.Forms.RadioButton radEleven4;
+        private System.Windows.Forms.RadioButton radEleven3;
+        private System.Windows.Forms.RadioButton radOne3;
+        private System.Windows.Forms.RadioButton radOne4;
     }
 }
 
